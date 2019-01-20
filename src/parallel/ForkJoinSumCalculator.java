@@ -77,11 +77,11 @@ public class ForkJoinSumCalculator extends RecursiveTask<Long> {
     }
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        System.out.println(forkJoinSum(10000000000L));
+        System.out.println(forkJoinSum(1000000));
         System.out.println("cost : " + (System.currentTimeMillis() - start));
 
         start = System.currentTimeMillis();
-        System.out.println(sequentialSum(10000000000L));
+        System.out.println(sequentialSum(10000000));
         System.out.println("cost : " + (System.currentTimeMillis() - start));
     }
 }
