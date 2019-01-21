@@ -11,6 +11,7 @@ public class FunctionTest {
 
         Function<String, String> emphasize = FunctionTest::emphasize;
         Function<String, String> uppercase = FunctionTest::upperCase;
+        Function<String, String> decorateString = FunctionTest::decorateS;
         Function<String, String[]> split = FunctionTest::split;
         Consumer<Object> printAnything = System.out::println;
 
@@ -24,14 +25,22 @@ public class FunctionTest {
         // 也可以针对单个字符串进行
         String s = "Hello";
         long start = System.currentTimeMillis();
-        printAnything.accept(compose(emphasize, uppercase).apply(s));
-        printAnything.accept(compose(uppercase, emphasize).apply(s));
+        for (int i = 0; i < 100000; i++) {
+            compose(decorateString, emphasize, uppercase).apply(s);
+            compose(uppercase, emphasize).apply(s);
+            //printAnything.accept(compose(decorateString, emphasize, uppercase).apply(s));
+            //printAnything.accept(compose(uppercase, emphasize).apply(s));
+        }
         printAnything.accept(System.currentTimeMillis() - start + "ms");
 
         // 虽然有函数式编程更加方便，但是会比较慢
         start = System.currentTimeMillis();
-        printAnything.accept(emphasize(s.toUpperCase()));
-        printAnything.accept(upperCase(emphasize(s)));
+        for (int i = 0; i < 100000; i++) {
+            decorateS(emphasize(s.toUpperCase()));
+            upperCase(emphasize(s));
+            //printAnything.accept(decorateS(emphasize(s.toUpperCase())));
+            //printAnything.accept(upperCase(emphasize(s)));
+        }
         printAnything.accept(System.currentTimeMillis() - start + "ms");
 
     }
@@ -65,7 +74,7 @@ public class FunctionTest {
         return s.toUpperCase();
     }
 
-    private static void decorateS(String s) {
-        System.out.println("This is the upper and emphasized string : " + s);
+    private static String decorateS(String s) {
+        return "This is the upper and emphasized string : " + s;
     }
 }
