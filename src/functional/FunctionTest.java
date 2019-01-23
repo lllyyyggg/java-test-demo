@@ -25,7 +25,7 @@ public class FunctionTest {
         // 也可以针对单个字符串进行
         String s = "Hello";
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10; i++) {
             compose(decorateString, emphasize, uppercase).apply(s);
             compose(uppercase, emphasize).apply(s);
             //printAnything.accept(compose(decorateString, emphasize, uppercase).apply(s));
@@ -35,7 +35,7 @@ public class FunctionTest {
 
         // 虽然有函数式编程更加方便，但是会比较慢
         start = System.currentTimeMillis();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10; i++) {
             decorateS(emphasize(s.toUpperCase()));
             upperCase(emphasize(s));
             //printAnything.accept(decorateS(emphasize(s.toUpperCase())));
@@ -43,6 +43,12 @@ public class FunctionTest {
         }
         printAnything.accept(System.currentTimeMillis() - start + "ms");
 
+        // 柯里化
+        Function<Integer, Function<Integer, Integer>> curry = i1 -> i2 -> i1 + i2;
+        Function<Integer, Integer> increment = curry.apply(1);
+        Function<Integer, Integer> addTen = curry.apply(10);
+        printAnything.accept(increment.apply(2));
+        printAnything.accept(addTen.apply(2));
     }
 
     private static <T, R> Function<T, R> compose(Function... functions) {
