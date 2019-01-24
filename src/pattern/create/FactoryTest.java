@@ -1,11 +1,12 @@
-package pattern;
+package pattern.create;
+
+import java.util.Optional;
 
 public class FactoryTest {
 
     private static class Factory {
         public static <T> T create(Class<T> clazz) throws IllegalAccessException, InstantiationException {
-            T instance = clazz.newInstance();
-            return instance;
+            return Optional.of(clazz).get().newInstance();
         }
     }
 

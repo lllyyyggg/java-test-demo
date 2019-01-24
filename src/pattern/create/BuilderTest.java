@@ -1,4 +1,4 @@
-package pattern;
+package pattern.create;
 
 import java.util.function.Consumer;
 

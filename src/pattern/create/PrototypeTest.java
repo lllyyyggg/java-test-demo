@@ -1,4 +1,7 @@
-package pattern;
+package pattern.create;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrototypeTest {
     private static class Prototype implements Cloneable {
