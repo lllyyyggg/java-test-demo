@@ -1,7 +1,5 @@
 package pattern.action;
 
-import com.sun.deploy.perf.PerfRollup;
-
 import java.util.HashMap;
 import java.util.Map;
 
