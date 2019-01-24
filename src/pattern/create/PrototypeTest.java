@@ -1,15 +1,9 @@
 package pattern.create;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PrototypeTest {
     private static class Prototype implements Cloneable {
         private int id;
         private Prototype next;
-
-        public Prototype() {
-        }
 
         public Prototype(int id) {
             this.id = id;
