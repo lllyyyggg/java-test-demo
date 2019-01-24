@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class AdapterTest {
 
-    // 现在有两个软件，但是电脑只支持MediaPlayer这样的软件
+    // 现在有两个软件，但是电脑只支持MediaPlayer这样的软件，不支持AdvancedMediaPlayer
     interface MediaPlayer {
         void play(String audioType, String fileName);
     }
@@ -39,7 +39,7 @@ public class AdapterTest {
     }
 
     // 现在我想使用AdvancedMediaPlayer
-    static class MediaAdapter implements MediaPlayer {
+    static class MediaPlayerAdapter implements MediaPlayer {
         private static final Map<String, AdvancedMediaPlayer> playerMap = new HashMap<>();
 
         static {
@@ -70,7 +70,7 @@ public class AdapterTest {
     }
 
     public static void main(String[] args) {
-        MediaPlayer mediaPlayer = new MediaAdapter();
+        MediaPlayer mediaPlayer = new MediaPlayerAdapter();
         Computer computer = new Computer();
         computer.install(mediaPlayer);
         computer.play("Mp4", "小森林.avi");

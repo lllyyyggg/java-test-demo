@@ -48,6 +48,7 @@ public class NullObjectTest {
         }
     }
 
+
     static class PersonFactory {
         private static final Map<String, Person> personMap = new HashMap<>();
         private static final NullPerson nullPerson = new NullPerson();
