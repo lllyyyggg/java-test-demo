@@ -61,9 +61,11 @@ public class AdapterTest {
 
     static class Computer {
         private MediaPlayer mediaPlayer;
+
         public void install(MediaPlayer mediaPlayer) {
             this.mediaPlayer = mediaPlayer;
         }
+
         public void play(String audioType, String fileName) {
             this.mediaPlayer.play(audioType, fileName);
         }
