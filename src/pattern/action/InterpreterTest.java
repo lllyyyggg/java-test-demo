@@ -65,7 +65,7 @@ public class InterpreterTest {
         Expression isMaleExpression = getMaleExpression(new String[]{"John", "Bob"});
         Expression womenMarriedExpression = womanMarriedExpression("Julia");
 
-        System.out.println("Is John Male ? " + isMaleExpression.interpreter("John"));
+        System.out.println("Is Alice Male ? " + isMaleExpression.interpreter("Alice"));
         System.out.println("Is Julia Married ? " + womenMarriedExpression.interpreter("Married Alice"));
     }
 }

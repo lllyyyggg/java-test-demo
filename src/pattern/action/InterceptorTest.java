@@ -58,7 +58,7 @@ public class InterceptorTest {
             filterChain.setHandler(handler);
         }
 
-        public void setFilter(Filter filter) {
+        public void registerFilter(Filter filter) {
             filterChain.addFilter(filter);
         }
 
@@ -81,8 +81,8 @@ public class InterceptorTest {
 
     public static void main(String[] args) {
         FilterManager filterManager = new FilterManager(new Handler());
-        filterManager.setFilter(new AuthenticationFilter());
-        filterManager.setFilter(new DebugFilter());
+        filterManager.registerFilter(new AuthenticationFilter());
+        filterManager.registerFilter(new DebugFilter());
 
         Client client = new Client();
         client.setFilterManager(filterManager);

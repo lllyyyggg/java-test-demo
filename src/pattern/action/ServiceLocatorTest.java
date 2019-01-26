@@ -48,7 +48,7 @@ public class ServiceLocatorTest {
     }
 
     static class Cache {
-        List<Service> services;
+        private List<Service> services;
 
         public Cache() {
             this.services = new ArrayList<>();

@@ -1,6 +1,5 @@
 package pattern.action;
 
-import java.util.List;
 
 public class BusinessDelegateTest {
     interface Service {

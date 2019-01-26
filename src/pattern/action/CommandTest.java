@@ -26,10 +26,10 @@ public class CommandTest {
         void execute();
     }
 
-    static class BuyStockCommand implements Order {
+    static class BuyStockOrder implements Order {
         private final Stock stock;
 
-        public BuyStockCommand(Stock stock) {
+        public BuyStockOrder(Stock stock) {
             this.stock = stock;
         }
 
@@ -39,10 +39,10 @@ public class CommandTest {
         }
     }
 
-    static class SellStockCommand implements Order {
+    static class SellStockOrder implements Order {
         private final Stock stock;
 
-        public SellStockCommand(Stock stock) {
+        public SellStockOrder(Stock stock) {
             this.stock = stock;
         }
 
@@ -73,9 +73,9 @@ public class CommandTest {
     public static void main(String[] args) {
         Stock stock = new Stock("ALIBABA", 999);
         Broker broker = new Broker();
-        broker.takeOrder(new BuyStockCommand(stock));
-        broker.takeOrder(new BuyStockCommand(stock));
-        broker.takeOrder(new SellStockCommand(stock));
+        broker.takeOrder(new BuyStockOrder(stock));
+        broker.takeOrder(new BuyStockOrder(stock));
+        broker.takeOrder(new SellStockOrder(stock));
         broker.executeOrders();
     }
 }
