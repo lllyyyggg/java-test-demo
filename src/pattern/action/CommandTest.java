@@ -48,7 +48,7 @@ public class CommandTest {
 
         @Override
         public void execute() {
-            System.out.println("Buy --- Stock [" + stock.getName() + "], Quantity : [" + stock.getQuantity() + "]");
+            System.out.println("Buy  --- Stock [" + stock.getName() + "], Quantity : [" + stock.getQuantity() + "]");
         }
     }
 

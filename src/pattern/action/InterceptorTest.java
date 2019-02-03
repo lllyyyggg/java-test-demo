@@ -53,7 +53,7 @@ public class InterceptorTest {
     static class FilterManager {
         private FilterChain filterChain;
 
-        public FilterManager(Handler handler) {
+         FilterManager(Handler handler) {
             filterChain = new FilterChain();
             filterChain.setHandler(handler);
         }
